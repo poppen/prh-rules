@@ -1,0 +1,49 @@
+version: 1
+
+imports:
+  - path: ../node_modules/prh/rules/media/techbooster.yml
+    disableImports: true
+    ignoreRules:
+      - expected: とおり
+      - expected: こと
+      - expected: とき
+
+rules:
+    # techbooster.ymlを上書き
+    - expected: のとおり
+      pattern: /の通り/
+      prh: 漢字で書かず、ひらがなで書くと読みやすくなります。
+    - expected: こと
+      pattern:  /(出来|何|物|記|大|仕|返|無|食|見|議)?事(?!情|件|前|後|例|実|体|態|項|務)/
+      regexpMustEmpty: $1
+      prh: 漢字で書かず、ひらがなで書くと読みやすくなります
+      specs:
+        - from: ある事
+          to:   あること
+        - from: 記事
+          to:   記事
+        - from: 事件
+          to:   事件
+        - from: 何事
+          to:   何事
+        - from: 物事
+          to:   物事
+
+    # 独自ルール
+    - pattern: /(失|行)な([わいうえおっ])/
+      expected: $1$2
+      specs:
+        - from: 行なわれる
+          to: 行われる
+        - from: 行なう
+          to: 行う
+        - from: 失なわれる
+          to: 失われる
+        - from: 失なう
+          to: 失う
+    - pattern: 物事
+      expected: ものごと
+    - pattern: 何事
+      expected: なにごと
+    - pattern: 出来事
+      expected: できごと
