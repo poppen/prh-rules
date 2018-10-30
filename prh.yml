@@ -7,6 +7,7 @@ imports:
       - expected: とおり
       - expected: こと
       - expected: とき
+      - expected: したがって
 
 rules:
     # techbooster.ymlを上書き
@@ -54,3 +55,10 @@ rules:
       expected: なにごと
     - pattern: 出来事
       expected: できごと
+    - pattern: /従([っう])/
+      expected: したが$1
+      specs:
+        - from: 従う
+          to: したがう
+        - from: 従って
+          to: したがって
