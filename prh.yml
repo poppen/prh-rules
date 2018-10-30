@@ -55,10 +55,12 @@ rules:
       expected: なにごと
     - pattern: 出来事
       expected: できごと
-    - pattern: /従([っう])/
+    - pattern: /従([っいう])/
       expected: したが$1
       specs:
         - from: 従う
           to: したがう
         - from: 従って
           to: したがって
+        - from: 従い
+          to: したがい
