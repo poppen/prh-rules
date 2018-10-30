@@ -32,10 +32,6 @@ rules:
           to:   記事
         - from: 事件
           to:   事件
-        - from: 何事
-          to:   何事
-        - from: 物事
-          to:   物事
 
     # 独自ルール
     - pattern: /(失|行)な([わいうえおっ])/
