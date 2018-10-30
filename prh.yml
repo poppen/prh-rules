@@ -32,6 +32,15 @@ rules:
           to:   記事
         - from: 事件
           to:   事件
+    - pattern: /従([っいう])/
+      expected: したが$1
+      specs:
+        - from: 従う
+          to: したがう
+        - from: 従って
+          to: したがって
+        - from: 従い
+          to: したがい
 
     # 独自ルール
     - pattern: /(失|行)な([わいうえおっ])/
@@ -51,12 +60,3 @@ rules:
       expected: なにごと
     - pattern: 出来事
       expected: できごと
-    - pattern: /従([っいう])/
-      expected: したが$1
-      specs:
-        - from: 従う
-          to: したがう
-        - from: 従って
-          to: したがって
-        - from: 従い
-          to: したがい
