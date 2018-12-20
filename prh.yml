@@ -7,13 +7,16 @@ imports:
       - expected: とおり
       - expected: こと
       - expected: とき
+      - expected: $1とき
       - expected: したがって
+      - expected: もつ
+      - expected: なる
+      - expected: いう
+      - expected: もっとも
+      - expected: よい
 
 rules:
     # techbooster.ymlを上書き
-    - expected: のとおり
-      pattern: /の通り/
-      prh: 漢字で書かず、ひらがなで書くと読みやすくなります。
     - expected: $1こと
       pattern:  /([たてなのる])事(?!情|件|前|後|例|実|体|態|項|務)/
       prh: 漢字で書かず、ひらがなで書くと読みやすくなります
@@ -41,6 +44,36 @@ rules:
           to: したがって
         - from: 従い
           to: したがい
+    - expected: $1とき
+      prh: 漢字で書かず、ひらがなで書くと読みやすくなります
+      pattern:  /(の)時(?!点|代|々|間|空)/
+      specs:
+        - from: その時
+          to:   そのとき
+        - from: その時点
+          to:   その時点
+        - from: その時代
+          to:   その時代
+        - from: それまでの時間
+          to:   それまでの時間
+        - from: 同時
+          to:   同時
+        - from: 実行時
+          to:   実行時
+        - from: 利用時
+          to:   利用時
+        - from: 開発時
+          to:   開発時
+        - from: 執筆時
+          to:   執筆時
+        - from: 時点
+          to:   時点
+        - from: 時代
+          to:   時代
+        - from: 時間
+          to:   時間
+        - from: 時空
+          to:   時空
 
     # 独自ルール
     - pattern: /(失|行)な([わいうえおっ])/
